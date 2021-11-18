@@ -1,0 +1,198 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    overflow: hidden;
+}
+
+.game {
+    height: 100vh;
+    background: url('img/main_baground.jpg');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    overflow: hidden;
+}
+
+.game .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.game .highscore {
+    font-size: 30px;
+    color: red;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.61);
+    border-radius: 10px;
+}
+
+.game .result {
+    padding: 10px 30px;
+    background: #bec9df;
+    width: 250px;
+    text-align: left;
+    border-radius: 10px;
+    font-size: 1.1em;
+    display: none;
+}
+
+.game .result .score {
+    transition: .5s;
+}
+
+.tooltip {
+    color: red;
+    font-size: 30px;
+    position: absolute;
+    animation: moveTip .5s linear;
+}
+
+@keyframes moveTip {
+    0% {
+        font-size: 30px;
+    }
+    100% {
+        top: 0;
+        right: 0;
+        font-size: 40px;
+    }
+}
+
+.game .result .score.active {
+    font-weight: bold;
+    color: red;
+}
+
+.game .intro {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(45, 6, 95, 0.37);
+    padding: 40px 30px;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    width: 600px;
+}
+
+.game .intro h1 {
+    margin-bottom: 40px;
+}
+
+.game .intro span {
+    background-color: tomato;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 2em;
+    cursor: pointer;
+    margin-bottom: 20px;
+    opacity: 0;
+    transition: 2s;
+}
+
+.typed-cursor.typed-cursor--blink {
+    display: none;
+}
+
+.typed-cursor {
+    display: none;
+}
+
+.game #gun {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    cursor: none;
+    background: url('img/aim.png');
+    background-size: cover;
+    z-index: 3;
+    pointer-events: none;
+    display: none;
+    filter: drop-shadow(2px 4px 6px white);
+}
+
+.game .bollet {
+    width: 50px;
+    height: 50px;
+    background: url('img/hole.png');
+    border-radius: 50%;
+    position: absolute;
+}
+
+.game #goal {
+    position: absolute;
+    z-index: 1;
+    width: 50px;
+    top: -500px;
+}
+
+.game .attack {
+    display: block;
+    animation: attack 20s linear;
+}
+
+@keyframes attack {
+    0% {
+        top: -500px;
+    }
+    100% {
+        top: 1000px;
+    }
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+
+@media only screen and (max-width: 600px) {
+    .game .highscore {
+        font-size: 20px;
+    }
+    .swal2-container.swal2-center>.swal2-popup {
+        width: 300px;
+    }
+    .game .intro {
+        width: 300px;
+        padding: 15px 5px;
+    }
+    .game .intro h1 {
+        margin-bottom: 16px;
+        font-size: 25px;
+    }
+    .game .intro span {
+        font-size: 15px;
+    }
+    .game .result {
+        padding: 5px 10px;
+        width: 200px;
+        margin-top: 0;
+        font-size: 15px;
+    }
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (min-width: 600px) {}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 768px) {}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (min-width: 992px) {}
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+@media only screen and (min-width: 1200px) {}
