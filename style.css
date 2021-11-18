@@ -168,14 +168,14 @@ body {
     }
     .game .intro {
         width: 300px;
-        padding: 15px 5px;
+        padding: 10px 5px;
     }
     .game .intro h1 {
         margin-bottom: 16px;
         font-size: 25px;
     }
     .game .intro span {
-        font-size: 15px;
+        font-size: 13px;
     }
     .game .result {
         padding: 5px 10px;
