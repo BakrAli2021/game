@@ -180,6 +180,8 @@ function topscore() {
             highscore.textContent = `Top Score: ${result}`;
             localStorage.score = result;
         }
+    } else {
+        localStorage.score = 0;
     }
 }
 topscore();
