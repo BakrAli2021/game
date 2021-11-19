@@ -174,10 +174,10 @@ body {
         padding: 2px;
     }
     .swal2-container.swal2-center>.swal2-popup {
-        width: 310px;
+        width: 300px;
     }
     .game .intro {
-        width: 300px;
+        width: 310px;
         padding: 10px 5px;
     }
     .game .intro h1 {
