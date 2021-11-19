@@ -181,7 +181,8 @@ body {
         font-size: 25px;
     }
     .game .intro span {
-        font-size: 15px;
+        font-size: 12px;
+        padding: 10px;
     }
     .game .result {
         padding: 5px 10px;
