@@ -169,8 +169,12 @@ body {
     .game .highscore {
         font-size: 20px;
     }
+    .game #lelvel {
+        font-size: 12px;
+        padding: 2px;
+    }
     .swal2-container.swal2-center>.swal2-popup {
-        width: 300px;
+        width: 310px;
     }
     .game .intro {
         width: 300px;
