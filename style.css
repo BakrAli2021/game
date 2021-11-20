@@ -153,6 +153,46 @@ body {
     animation: attack 20s linear;
 }
 
+.time {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50%;
+    animation: attack 20s linear infinite;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.time::after {
+    content: '20';
+    position: absolute;
+    left: 38%;
+    top: 32%;
+    transform: translate(-50%, -50%);
+    animation: timescale .5s linear infinite;
+}
+
+@keyframes timescale {
+    0% {
+        transform: scale(.7);
+    }
+    100% {
+        transform: scale(1.5);
+    }
+}
+
+.gameTime {
+    color: white;
+    background-color: #07223f;
+    border: 1px solid white;
+    padding: 10px;
+    display: none;
+}
+
 @keyframes attack {
     0% {
         top: -500px;
@@ -166,8 +206,14 @@ body {
 /* Extra small devices (phones, 600px and down) */
 
 @media only screen and (max-width: 600px) {
-    .game .highscore {
-        font-size: 20px;
+    .game .highscore,
+    .game .gameTime {
+        font-size: 12px;
+        text-align: center;
+    }
+    .game .gameTime {
+        border: none;
+        background: none;
     }
     .game #lelvel {
         font-size: 12px;
