@@ -23,11 +23,13 @@ body {
     justify-content: space-between;
     align-items: center;
     padding-top: 10px;
+    position: relative;
+    z-index: 2;
 }
 
 .game .highscore {
     font-size: 30px;
-    color: red;
+    color: rgb(255, 255, 255);
     padding: 10px;
     background: rgba(255, 255, 255, 0.61);
     border-radius: 10px;
