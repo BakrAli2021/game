@@ -165,6 +165,9 @@ start.addEventListener('click', (e) => {
 
     }, level !== '' ? (parseInt(attackersNUm) - 5) * 1000 : 35000);*/
 
+setTimeout(() => {
+    finishgame();
+}, level !== '' ? 210000 : 73000);
 
 
 
@@ -269,6 +272,3 @@ function finishgame() {
 
 
 }
-setTimeout(() => {
-    finishgame();
-}, level !== '' ? 210000 : 73000);
