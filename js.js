@@ -9,7 +9,9 @@ let game = document.getElementById('game'),
     dest = document.querySelector('.destory'),
     highscore = document.querySelector('.highscore'),
     level = '',
-    attackersNUm = 30;
+    gameTime = document.querySelector('.gameTime'),
+    timer = document.querySelector('.timer');
+attackersNUm = 100;
 /// choose game level
 document.querySelector('#lelvel').addEventListener('change', function() {
     level = this.value;
@@ -39,10 +41,9 @@ function stargame() {
         tries.textContent = `${bulletnum}`;
     });
 }
+/// crate attackers function
 
-// create attackers  function
-function createAttackers() {
-
+function crateAttackers() {
     imgSrc = ['img/3.png', 'img/war.png', 'img/4.png'];
 
     for (let i = 0; i < attackersNUm; i++) {
@@ -54,7 +55,10 @@ function createAttackers() {
         goal.id = 'goal';
         game.appendChild(goal);
     }
-
+}
+// create attackers  function
+function start_Attack() {
+    crateAttackers();
     // start attack;
     attackers = document.querySelectorAll('#goal');
     let num = attackers.length;
@@ -83,7 +87,7 @@ function createAttackers() {
             // attackers shape
             goal.setAttribute('src', 'img/ex.gif');
             num--;
-            dest.textContent = `${num}  Of ${attackers.length}`;
+            dest.textContent = `${attackers.length-num}  Of ${attackers.length}`;
             // dest.textContent = `You destory: ${num}`;
             score.textContent = `${result}`;
             score.classList.add('active');
@@ -111,15 +115,17 @@ setTimeout(() => {
 
 start.addEventListener('click', (e) => {
     stargame();
-    createAttackers();
+    start_Attack();
+    increaseTime();
     game.style.backgroundImage = `url('img/war_bg.gif')`;
     start.parentElement.style.display = 'none';
     game.style.cursor = 'none';
+    gameTime.style.display = 'block';
     gun.style.display = 'block';
     document.querySelector('.game .result').style.display = 'block';
 
     /****game over message */
-    setTimeout(() => {
+    /*setTimeout(() => {
         let x = Swal.fire({
             title: 'Game Over Yor Final Score is: ' + result,
             showClass: {
@@ -157,7 +163,7 @@ start.addEventListener('click', (e) => {
         // relaod page
 
 
-    }, level !== '' ? (parseInt(attackersNUm) - 5) * 1000 : 35000);
+    }, level !== '' ? (parseInt(attackersNUm) - 5) * 1000 : 35000);*/
 
 
 
@@ -190,3 +196,79 @@ function topscore() {
     }
 }
 topscore();
+
+function increaseTime() {
+    var createGift = setInterval(() => {
+        let time = document.createElement('span');
+        time.className = 'time';
+        time.setAttribute('data-time', '20');
+        time.style.animationDuration = `${level}`;
+        var x = Math.floor(Math.random() * game.offsetWidth);
+        time.style.left = x + 'px';
+        game.appendChild(time);
+
+        // click to increase playing time
+        time.addEventListener('click', (e) => {
+            let xx = parseInt(timer.textContent);
+            let y = parseInt(time.getAttribute('data-time'));
+            timer.textContent = `${xx + y}`;
+            time.remove();
+        });
+        setTimeout(() => {
+            time.remove();
+        }, level !== '' ? (parseInt(level) * 1000) : 15000);
+
+    }, 20000);
+    let giftTime = setInterval(() => {
+        let x = parseInt(timer.textContent);
+        x--;
+        timer.textContent = `${x}`;
+        if (x === 0) {
+            clearInterval(createGift);
+            clearInterval(giftTime);
+            return finishgame();
+        }
+    }, 1000);
+}
+
+function finishgame() {
+    let x = Swal.fire({
+        title: 'Game Over Yor Final Score is: ' + result,
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            /// reload th page to prevent start function that create gun 
+            location.reload();
+        }
+    });
+
+    document.querySelector('.intro').style.display = 'block';
+    attackers.forEach((e) => {
+        e.classList.remove('attack');
+    });
+
+    /////////// top score function
+    topscore();
+
+    result = 0;
+    score.textContent = `Score: ${0}`;
+    bulletnum = -1;
+    game.style.cursor = 'initial';
+    gun.style.display = 'none';
+    document.querySelector('.game .result').style.display = 'none';
+    num = attackers.length;
+    dest.textContent = `${0}  Of ${attackers.length}`;
+    attackers.forEach((e) => {
+        e.remove();
+    });
+
+
+}
+setTimeout(() => {
+    finishgame();
+}, level !== '' ? 210000 : 73000);
