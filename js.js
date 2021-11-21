@@ -275,3 +275,10 @@ function finishgame() {
 
 
 }
+setInterval(()=>{
+if(document.querySelectorAll('.tooltip')){
+    document.querySelectorAll('.tooltip').forEach((e)=>{
+        e.remove;
+    })
+}
+},500);
