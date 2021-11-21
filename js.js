@@ -94,6 +94,7 @@ function start_Attack() {
             tooltip.className = 'tooltip';
             tooltip.style.left = gun.offsetLeft + 'px';
             tooltip.style.top = gun.offsetTop + 'px';
+            tooltip.classList.add('active');
             game.appendChild(tooltip);
             setTimeout(() => {
                 goal.remove();
