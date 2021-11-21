@@ -60,7 +60,7 @@ body {
 .tooltip.active{
     opacity:0;
     visibility: hidden;
-    animation: moveTip .5s linear ;
+    animation: moveTip 1s linear ;
 }
 @keyframes moveTip {
     0% {
