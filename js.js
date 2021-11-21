@@ -21,6 +21,11 @@ document.querySelector('#lelvel').addEventListener('change', function() {
 game.addEventListener('mousemove', (e) => {
     gun.style.left = e.clientX - 45 + 'px';
     gun.style.top = e.clientY - 45 + 'px';
+     if(document.querySelectorAll('.tooltip')){
+            document.querySelectorAll('.tooltip').forEach((e)=>{
+                e.remove;
+            })
+        }
 });
 
 // first step of start
@@ -106,11 +111,7 @@ function start_Attack() {
         });
     });
    
-        if(document.querySelectorAll('.tooltip')){
-            document.querySelectorAll('.tooltip').forEach((e)=>{
-                e.remove;
-            })
-        }
+       
       
     attackers.forEach((e) => {
         e.classList.add('attack');
