@@ -58,8 +58,8 @@ body {
     position: absolute;
 }
 .tooltip.active{
-    opacity:1;
-    visibility: visible;
+    opacity:0;
+    visibility: hidden;
 animation: moveTip .5s linear infinite;
 }
 @keyframes moveTip {
@@ -74,7 +74,6 @@ animation: moveTip .5s linear infinite;
         right: 0;
         font-size: 40px;
         opacity:0;
-        opacity:1;
         visibility: hidden;
         display:none;
     }
