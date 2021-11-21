@@ -56,13 +56,16 @@ body {
     color: red;
     font-size: 30px;
     position: absolute;
-    animation: moveTip .5s linear infinite;
+    opacity:1;
+    visibility: visible;
+    animation: moveTip .5s linear;
 }
 
 @keyframes moveTip {
     0% {
         font-size: 30px;
         opacity:1;
+        visibility: visible;
         display:block;
     }
     100% {
@@ -70,6 +73,8 @@ body {
         right: 0;
         font-size: 40px;
         opacity:0;
+        opacity:1;
+        visibility: hidden;
         display:none;
     }
 }
