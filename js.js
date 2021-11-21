@@ -67,11 +67,7 @@ function start_Attack() {
 
         /// click to kill
         goal.addEventListener('click', () => {
-            //// crate tooltip with point scored
-            tooltip = document.createElement('span');
-            tooltip.className = 'tooltip';
-            tooltip.style.left = gun.offsetLeft + 'px';
-            tooltip.style.top = gun.offsetTop + 'px';
+           
             let img_src = goal.src;
             if (img_src.substring(img_src.length - 5, img_src.length) == '3.png') {
                 result += 10;
@@ -83,7 +79,7 @@ function start_Attack() {
                 result += 10;
                 tooltip.textContent = '15+';
             }
-            game.appendChild(tooltip);
+           
             // attackers shape
             goal.setAttribute('src', 'img/ex.gif');
             num--;
@@ -93,6 +89,12 @@ function start_Attack() {
             score.classList.add('active');
             dest.classList.add('active');
             tries.classList.add('active');
+              //// crate tooltip with point scored
+            tooltip = document.createElement('span');
+            tooltip.className = 'tooltip';
+            tooltip.style.left = gun.offsetLeft + 'px';
+            tooltip.style.top = gun.offsetTop + 'px';
+            game.appendChild(tooltip);
             setTimeout(() => {
                 goal.remove();
                 score.classList.remove('active');
