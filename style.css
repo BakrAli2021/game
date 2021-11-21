@@ -59,7 +59,6 @@ body {
 }
 .tooltip.active{
     opacity:0;
-    display: none;
     visibility: hidden;
     animation: moveTip .5s linear ;
 }
