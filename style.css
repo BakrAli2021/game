@@ -56,7 +56,7 @@ body {
     color: red;
     font-size: 30px;
     position: absolute;
-    animation: moveTip .5s linear;
+    animation: moveTip .5s linear infinite;
 }
 
 @keyframes moveTip {
