@@ -56,11 +56,12 @@ body {
     color: red;
     font-size: 30px;
     position: absolute;
-    opacity:0;
-    visibility: visible;
-    animation: moveTip .5s linear infinite;
 }
-
+.tooltip.active{
+    opacity:1;
+    visibility: visible;
+animation: moveTip .5s linear infinite;
+}
 @keyframes moveTip {
     0% {
         font-size: 30px;
