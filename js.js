@@ -67,7 +67,7 @@ function start_Attack() {
 
         /// click to kill
         goal.addEventListener('click', () => {
-           
+            tooltip = document.createElement('span');
             let img_src = goal.src;
             if (img_src.substring(img_src.length - 5, img_src.length) == '3.png') {
                 result += 10;
@@ -90,7 +90,7 @@ function start_Attack() {
             dest.classList.add('active');
             tries.classList.add('active');
               //// crate tooltip with point scored
-            tooltip = document.createElement('span');
+           
             tooltip.className = 'tooltip';
             tooltip.style.left = gun.offsetLeft + 'px';
             tooltip.style.top = gun.offsetTop + 'px';
