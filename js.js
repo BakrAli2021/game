@@ -105,6 +105,13 @@ function start_Attack() {
             }, 500);
         });
     });
+   
+        if(document.querySelectorAll('.tooltip')){
+            document.querySelectorAll('.tooltip').forEach((e)=>{
+                e.remove;
+            })
+        }
+      
     attackers.forEach((e) => {
         e.classList.add('attack');
         e.style.animationDuration = `${level}`;
@@ -275,10 +282,3 @@ function finishgame() {
 
 
 }
-setInterval(()=>{
-if(document.querySelectorAll('.tooltip')){
-    document.querySelectorAll('.tooltip').forEach((e)=>{
-        e.remove;
-    })
-}
-},500);
