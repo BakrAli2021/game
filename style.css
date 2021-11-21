@@ -62,11 +62,15 @@ body {
 @keyframes moveTip {
     0% {
         font-size: 30px;
+        opacity:1;
+        display:block;
     }
     100% {
         top: 0;
         right: 0;
         font-size: 40px;
+        opacity:0;
+        display:none;
     }
 }
 
